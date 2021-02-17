@@ -25,21 +25,14 @@ namespace WebApplication2
 
             Response.Write("Connection Made");
             cnn.Close();
-        }
 
-        protected void RadioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void btnSubmit_Click(object sender, EventArgs e)
-        {
+            //
             cnn.Open();
 
             SqlCommand command;
             SqlDataReader dataReader;
             String sql, Output = " ";
-            sql = "Select TutorialID,TutorialName from demotb";
+            sql = "Select nom , prenom from table1";
 
             command = new SqlCommand(sql, cnn);
 
@@ -54,8 +47,10 @@ namespace WebApplication2
             command.Dispose();
 
             cnn.Close();
+        }
 
-
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
             //Session["Name"] = txtName.Text;
 
             Response.Write(Session["Name"]);
